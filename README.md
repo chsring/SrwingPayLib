@@ -12,6 +12,6 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.694177407:SrwingPayLib:Tag'
+	        implementation 'com.github.694177407:SrwingPayLib:b58d2e3e92'
 	}
 Share this release:
