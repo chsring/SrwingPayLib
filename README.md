@@ -14,6 +14,7 @@ Step 2. Add the dependency
   
  代码中配置：
  app的gradle中添加依赖
+ ```Java
   buildTypes {
         debug {
         	...
@@ -24,10 +25,15 @@ Step 2. Add the dependency
         }
     }
 }
+```
 1. 在application中注册
 //注册支付
+```Java
 PayManager.getInstance().initWeChat(new WeakReference<>(mContext), BuildConfig.WECHAT_ID).initAliPay().build();
+```
 2.在调用支付的页面注册支付的回调
+
+```Java
 PayManager.getInstance().reResp(this);
 
  //支付成功的回调
@@ -45,8 +51,17 @@ PayManager.getInstance().reResp(this);
     public void onFail(String errStr) {
     
     }
+ ```
 3. 支付
-调用微信：PayManager.getInstance().payWeChat(payEntity);
-支付宝支付： PayManager.getInstance().payAliPay(payEntity, (RxAppCompatActivity) _mActivity);
+调用微信：
+```Java
+PayManager.getInstance().payWeChat(payEntity);
+```
+支付宝支付：
+```Java
+PayManager.getInstance().payAliPay(payEntity, (RxAppCompatActivity) _mActivity);
+```
 4.在onDestroy中释放（如果不释放，会造成内存泄露）
+```Java
  PayManager.getInstance().unResResp();
+ ```
