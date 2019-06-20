@@ -53,7 +53,7 @@ PayManager.getInstance().reResp(this);
     }
  ```
 3. 支付
-调用微信：
+调用微信：payEntity是服务器拼接好参数返回的
 ```Java
 PayManager.getInstance().payWeChat(payEntity);
 ```
